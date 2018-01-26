@@ -1,0 +1,1357 @@
+catmini:msansible msops$ pwd
+/Users/msops/Demo/msansible
+catmini:msansible msops$ ls
+LICENSE			ansible			scripts
+README.md		docs			test
+Vagrantfile		package.json		vagrant-hosts.yml
+catmini:msansible msops$ vagrant up
+Bringing machine 'srv001' up with 'virtualbox' provider...
+Bringing machine 'srv002' up with 'virtualbox' provider...
+==> srv001: Box 'bento/centos-7.4' could not be found. Attempting to find and install...
+    srv001: Box Provider: virtualbox
+    srv001: Box Version: >= 0
+==> srv001: Loading metadata for box 'bento/centos-7.4'
+    srv001: URL: https://vagrantcloud.com/bento/centos-7.4
+==> srv001: Adding box 'bento/centos-7.4' (v201801.02.0) for provider: virtualbox
+    srv001: Downloading: https://vagrantcloud.com/bento/boxes/centos-7.4/versions/201801.02.0/providers/virtualbox.box
+==> srv001: Successfully added box 'bento/centos-7.4' (v201801.02.0) for 'virtualbox'!
+==> srv001: Importing base box 'bento/centos-7.4'...
+==> srv001: Matching MAC address for NAT networking...
+==> srv001: Checking if box 'bento/centos-7.4' is up to date...
+==> srv001: Setting the name of the VM: msansible_srv001_1516894292045_38682
+==> srv001: Clearing any previously set network interfaces...
+==> srv001: Preparing network interfaces based on configuration...
+    srv001: Adapter 1: nat
+    srv001: Adapter 2: hostonly
+==> srv001: Forwarding ports...
+    srv001: 22 (guest) => 2222 (host) (adapter 1)
+==> srv001: Running 'pre-boot' VM customizations...
+==> srv001: Booting VM...
+==> srv001: Waiting for machine to boot. This may take a few minutes...
+    srv001: SSH address: 127.0.0.1:2222
+    srv001: SSH username: vagrant
+    srv001: SSH auth method: private key
+==> srv001: Machine booted and ready!
+==> srv001: Checking for guest additions in VM...
+==> srv001: Setting hostname...
+==> srv001: Configuring and enabling network interfaces...
+    srv001: SSH address: 127.0.0.1:2222
+    srv001: SSH username: vagrant
+    srv001: SSH auth method: private key
+==> srv001: Mounting shared folders...
+    srv001: /vagrant => /Users/msops/Demo/msansible
+==> srv001: Running provisioner: shell...
+    srv001: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-1060-rbgk7n.sh
+    srv001: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv001.
+    srv001: >>> CentOS: installing Ansible from the EPEL repository
+    srv001: Loaded plugins: fastestmirror
+    srv001: Determining fastest mirrors
+    srv001:  * base: mirror.genesisadaptive.com
+    srv001:  * extras: ftpmirror.your.org
+    srv001:  * updates: mirror.team-cymru.org
+    srv001: Resolving Dependencies
+    srv001: --> Running transaction check
+    srv001: ---> Package epel-release.noarch 0:7-9 will be installed
+    srv001: --> Finished Dependency Resolution
+    srv001: 
+    srv001: Dependencies Resolved
+    srv001: 
+    srv001: ================================================================================
+    srv001:  Package                Arch             Version         Repository        Size
+    srv001: ================================================================================
+    srv001: Installing:
+    srv001:  epel-release           noarch           7-9             extras            14 k
+    srv001: 
+    srv001: Transaction Summary
+    srv001: ================================================================================
+    srv001: Install  1 Package
+    srv001: 
+    srv001: Total download size: 14 k
+    srv001: Installed size: 24 k
+    srv001: Downloading packages:
+    srv001: Running transaction check
+    srv001: Running transaction test
+    srv001: Transaction test succeeded
+    srv001: Running transaction
+    srv001:   Installing : epel-release-7-9.noarch                                      1/1
+    srv001:  
+    srv001:   Verifying  : epel-release-7-9.noarch                                      1/1
+    srv001:  
+    srv001: 
+    srv001: Installed:
+    srv001:   epel-release.noarch 0:7-9                                                     
+    srv001: 
+    srv001: Complete!
+    srv001: Loaded plugins: fastestmirror
+    srv001: Loading mirror speeds from cached hostfile
+    srv001:  * base: mirror.genesisadaptive.com
+    srv001:  * epel: mirror.beyondhosting.net
+    srv001:  * extras: ftpmirror.your.org
+    srv001:  * updates: mirror.team-cymru.org
+    srv001: Resolving Dependencies
+    srv001: --> Running transaction check
+    srv001: ---> Package ansible.noarch 0:2.4.2.0-1.el7 will be installed
+    srv001: --> Processing Dependency: PyYAML for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-crypto for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-httplib2 for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-jinja2 for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-keyczar for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-paramiko for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-setuptools for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python-six for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: python2-jmespath for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Processing Dependency: sshpass for package: ansible-2.4.2.0-1.el7.noarch
+    srv001: --> Running transaction check
+    srv001: ---> Package PyYAML.x86_64 0:3.10-11.el7 will be installed
+    srv001: --> Processing Dependency: libyaml-0.so.2()(64bit) for package: PyYAML-3.10-11.el7.x86_64
+    srv001: ---> Package python-httplib2.noarch 0:0.9.2-1.el7 will be installed
+    srv001: ---> Package python-jinja2.noarch 0:2.7.2-2.el7 will be installed
+    srv001: --> Processing Dependency: python-babel >= 0.8 for package: python-jinja2-2.7.2-2.el7.noarch
+    srv001: --> Processing Dependency: python-markupsafe for package: python-jinja2-2.7.2-2.el7.noarch
+    srv001: ---> Package python-keyczar.noarch 0:0.71c-2.el7 will be installed
+    srv001: --> Processing Dependency: python-pyasn1 for package: python-keyczar-0.71c-2.el7.noarch
+    srv001: ---> Package python-paramiko.noarch 0:2.1.1-2.el7 will be installed
+    srv001: --> Processing Dependency: python-cryptography for package: python-paramiko-2.1.1-2.el7.noarch
+    srv001: ---> Package python-setuptools.noarch 0:0.9.8-7.el7 will be installed
+    srv001: --> Processing Dependency: python-backports-ssl_match_hostname for package: python-setuptools-0.9.8-7.el7.noarch
+    srv001: ---> Package python-six.noarch 0:1.9.0-2.el7 will be installed
+    srv001: ---> Package python2-crypto.x86_64 0:2.6.1-15.el7 will be installed
+    srv001: --> Processing Dependency: libtomcrypt.so.0()(64bit) for package: python2-crypto-2.6.1-15.el7.x86_64
+    srv001: ---> Package python2-jmespath.noarch 0:0.9.0-3.el7 will be installed
+    srv001: ---> Package sshpass.x86_64 0:1.06-2.el7 will be installed
+    srv001: --> Running transaction check
+    srv001: ---> Package libtomcrypt.x86_64 0:1.17-26.el7 will be installed
+    srv001: --> Processing Dependency: libtommath >= 0.42.0 for package: libtomcrypt-1.17-26.el7.x86_64
+    srv001: --> Processing Dependency: libtommath.so.0()(64bit) for package: libtomcrypt-1.17-26.el7.x86_64
+    srv001: ---> Package libyaml.x86_64 0:0.1.4-11.el7_0 will be installed
+    srv001: ---> Package python-babel.noarch 0:0.9.6-8.el7 will be installed
+    srv001: ---> Package python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7 will be installed
+    srv001: --> Processing Dependency: python-backports for package: python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch
+    srv001: ---> Package python-markupsafe.x86_64 0:0.11-10.el7 will be installed
+    srv001: ---> Package python2-cryptography.x86_64 0:1.7.2-1.el7_4.1 will be installed
+    srv001: --> Processing Dependency: python-idna >= 2.0 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv001: --> Processing Dependency: python-cffi >= 1.4.1 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv001: --> Processing Dependency: python-ipaddress for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv001: --> Processing Dependency: python-enum34 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv001: ---> Package python2-pyasn1.noarch 0:0.1.9-7.el7 will be installed
+    srv001: --> Running transaction check
+    srv001: ---> Package libtommath.x86_64 0:0.42.0-6.el7 will be installed
+    srv001: ---> Package python-backports.x86_64 0:1.0-8.el7 will be installed
+    srv001: ---> Package python-cffi.x86_64 0:1.6.0-5.el7 will be installed
+    srv001: --> Processing Dependency: python-pycparser for package: python-cffi-1.6.0-5.el7.x86_64
+    srv001: ---> Package python-enum34.noarch 0:1.0.4-1.el7 will be installed
+    srv001: ---> Package python-idna.noarch 0:2.4-1.el7 will be installed
+    srv001: ---> Package python-ipaddress.noarch 0:1.0.16-2.el7 will be installed
+    srv001: --> Running transaction check
+    srv001: ---> Package python-pycparser.noarch 0:2.14-1.el7 will be installed
+    srv001: --> Processing Dependency: python-ply for package: python-pycparser-2.14-1.el7.noarch
+    srv001: --> Running transaction check
+    srv001: ---> Package python-ply.noarch 0:3.4-11.el7 will be installed
+    srv001: --> Finished Dependency Resolution
+    srv001: 
+    srv001: Dependencies Resolved
+    srv001: 
+    srv001: ================================================================================
+    srv001:  Package                              Arch    Version            Repository
+    srv001:                                                                            Size
+    srv001: ================================================================================
+    srv001: Installing:
+    srv001:  ansible                              noarch  2.4.2.0-1.el7      epel     7.6 M
+    srv001: Installing for dependencies:
+    srv001:  PyYAML                               x86_64  3.10-11.el7        base     153 k
+    srv001:  libtomcrypt                          x86_64  1.17-26.el7        extras   224 k
+    srv001:  libtommath                           x86_64  0.42.0-6.el7       extras    36 k
+    srv001:  libyaml                              x86_64  0.1.4-11.el7_0     base      55 k
+    srv001:  python-babel                         noarch  0.9.6-8.el7        base     1.4 M
+    srv001:  python-backports                     x86_64  1.0-8.el7          base     5.8 k
+    srv001:  python-backports-ssl_match_hostname  noarch  3.4.0.2-4.el7      base      12 k
+    srv001:  python-cffi                          x86_64  1.6.0-5.el7        base     218 k
+    srv001:  python-enum34                        noarch  1.0.4-1.el7        base      52 k
+    srv001:  python-httplib2                      noarch  0.9.2-1.el7        extras   115 k
+    srv001:  python-idna                          noarch  2.4-1.el7          base      94 k
+    srv001:  python-ipaddress                     noarch  1.0.16-2.el7       base      34 k
+    srv001:  python-jinja2                        noarch  2.7.2-2.el7        base     515 k
+    srv001:  python-keyczar                       noarch  0.71c-2.el7        epel     218 k
+    srv001:  python-markupsafe                    x86_64  0.11-10.el7        base      25 k
+    srv001:  python-paramiko                      noarch  2.1.1-2.el7        extras   267 k
+    srv001:  python-ply                           noarch  3.4-11.el7         base     123 k
+    srv001:  python-pycparser                     noarch  2.14-1.el7         base     104 k
+    srv001:  python-setuptools                    noarch  0.9.8-7.el7        base     397 k
+    srv001:  python-six                           noarch  1.9.0-2.el7        base      29 k
+    srv001:  python2-crypto                       x86_64  2.6.1-15.el7       extras   477 k
+    srv001:  python2-cryptography                 x86_64  1.7.2-1.el7_4.1    updates  502 k
+    srv001:  python2-jmespath                     noarch  0.9.0-3.el7        extras    39 k
+    srv001:  python2-pyasn1                       noarch  0.1.9-7.el7        base     100 k
+    srv001:  sshpass                              x86_64  1.06-2.el7         extras    21 k
+    srv001: 
+    srv001: Transaction Summary
+    srv001: ================================================================================
+    srv001: Install  1 Package (+25 Dependent packages)
+    srv001: 
+    srv001: Total download size: 13 M
+    srv001: Installed size: 61 M
+    srv001: Downloading packages:
+    srv001: Public key for ansible-2.4.2.0-1.el7.noarch.rpm is not installed
+    srv001: warning: /var/cache/yum/x86_64/7/epel/packages/ansible-2.4.2.0-1.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+    srv001: --------------------------------------------------------------------------------
+    srv001: Total                                              4.8 MB/s |  13 MB  00:02     
+    srv001: Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    srv001: Importing GPG key 0x352C64E5:
+    srv001:  Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+    srv001:  Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+    srv001:  Package    : epel-release-7-9.noarch (@extras)
+    srv001:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    srv001: Running transaction check
+    srv001: Running transaction test
+    srv001: Transaction test succeeded
+    srv001: Running transaction
+    srv001:   Installing : python2-pyasn1-0.1.9-7.el7.noarch                           1/26
+    srv001:  
+    srv001:   Installing : python-six-1.9.0-2.el7.noarch                               2/26
+    srv001:  
+    srv001:   Installing : python-httplib2-0.9.2-1.el7.noarch                          3/26
+    srv001:  
+    srv001:   Installing : python-enum34-1.0.4-1.el7.noarch                            4/26
+    srv001:  
+    srv001:   Installing : python-ipaddress-1.0.16-2.el7.noarch                        5/26
+    srv001:  
+    srv001:   Installing : libyaml-0.1.4-11.el7_0.x86_64                               6/26
+    srv001:  
+    srv001:   Installing : PyYAML-3.10-11.el7.x86_64                                   7/26
+    srv001:  
+    srv001:   Installing : libtommath-0.42.0-6.el7.x86_64                              8/26
+    srv001:  
+    srv001:   Installing : libtomcrypt-1.17-26.el7.x86_64                              9/26
+    srv001:  
+    srv001:   Installing : python2-crypto-2.6.1-15.el7.x86_64                         10/26
+    srv001:  
+    srv001:   Installing : python-keyczar-0.71c-2.el7.noarch                          11/26
+    srv001:  
+    srv001:   Installing : python-backports-1.0-8.el7.x86_64                          12/26
+    srv001:  
+    srv001:   Installing : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch   13/26
+    srv001:  
+    srv001:   Installing : python-setuptools-0.9.8-7.el7.noarch                       14/26
+    srv001:  
+    srv001:   Installing : python-babel-0.9.6-8.el7.noarch                            15/26
+    srv001:  
+    srv001:   Installing : python-ply-3.4-11.el7.noarch                               16/26
+    srv001:  
+    srv001:   Installing : python-pycparser-2.14-1.el7.noarch                         17/26
+    srv001:  
+    srv001:   Installing : python-cffi-1.6.0-5.el7.x86_64                             18/26
+    srv001:  
+    srv001:   Installing : python-markupsafe-0.11-10.el7.x86_64                       19/26
+    srv001:  
+    srv001:   Installing : python-jinja2-2.7.2-2.el7.noarch                           20/26
+    srv001:  
+    srv001:   Installing : python-idna-2.4-1.el7.noarch                               21/26
+    srv001:  
+    srv001:   Installing : python2-cryptography-1.7.2-1.el7_4.1.x86_64                22/26
+    srv001:  
+    srv001:   Installing : python-paramiko-2.1.1-2.el7.noarch                         23/26
+    srv001:  
+    srv001:   Installing : sshpass-1.06-2.el7.x86_64                                  24/26
+    srv001:  
+    srv001:   Installing : python2-jmespath-0.9.0-3.el7.noarch                        25/26
+    srv001:  
+    srv001:   Installing : ansible-2.4.2.0-1.el7.noarch                               26/26
+    srv001:  
+    srv001:   Verifying  : python-keyczar-0.71c-2.el7.noarch                           1/26
+    srv001:  
+    srv001:   Verifying  : python-jinja2-2.7.2-2.el7.noarch                            2/26
+    srv001:  
+    srv001:   Verifying  : python2-jmespath-0.9.0-3.el7.noarch                         3/26
+    srv001:  
+    srv001:   Verifying  : sshpass-1.06-2.el7.x86_64                                   4/26
+    srv001:  
+    srv001:   Verifying  : python-setuptools-0.9.8-7.el7.noarch                        5/26
+    srv001:  
+    srv001:   Verifying  : python2-cryptography-1.7.2-1.el7_4.1.x86_64                 6/26
+    srv001:  
+    srv001:   Verifying  : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch    7/26
+    srv001:  
+    srv001:   Verifying  : python-six-1.9.0-2.el7.noarch                               8/26
+    srv001:  
+    srv001:   Verifying  : python-idna-2.4-1.el7.noarch                                9/26
+    srv001:  
+    srv001:   Verifying  : python-markupsafe-0.11-10.el7.x86_64                       10/26
+    srv001:  
+    srv001:   Verifying  : python-ply-3.4-11.el7.noarch                               11/26
+    srv001:  
+    srv001:   Verifying  : python-babel-0.9.6-8.el7.noarch                            12/26
+    srv001:  
+    srv001:   Verifying  : python-backports-1.0-8.el7.x86_64                          13/26
+    srv001:  
+    srv001:   Verifying  : python-cffi-1.6.0-5.el7.x86_64                             14/26
+    srv001:  
+    srv001:   Verifying  : libtommath-0.42.0-6.el7.x86_64                             15/26
+    srv001:  
+    srv001:   Verifying  : python-pycparser-2.14-1.el7.noarch                         16/26
+    srv001:  
+    srv001:   Verifying  : libyaml-0.1.4-11.el7_0.x86_64                              17/26
+    srv001:  
+    srv001:   Verifying  : ansible-2.4.2.0-1.el7.noarch                               18/26
+    srv001:  
+    srv001:   Verifying  : python-paramiko-2.1.1-2.el7.noarch                         19/26
+    srv001:  
+    srv001:   Verifying  : python2-crypto-2.6.1-15.el7.x86_64                         20/26
+    srv001:  
+    srv001:   Verifying  : python-ipaddress-1.0.16-2.el7.noarch                       21/26
+    srv001:  
+    srv001:   Verifying  : python-enum34-1.0.4-1.el7.noarch                           22/26
+    srv001:  
+    srv001:   Verifying  : python-httplib2-0.9.2-1.el7.noarch                         23/26
+    srv001:  
+    srv001:   Verifying  : python2-pyasn1-0.1.9-7.el7.noarch                          24/26
+    srv001:  
+    srv001:   Verifying  : PyYAML-3.10-11.el7.x86_64                                  25/26
+    srv001:  
+    srv001:   Verifying  : libtomcrypt-1.17-26.el7.x86_64                             26/26
+    srv001:  
+    srv001: 
+    srv001: Installed:
+    srv001:   ansible.noarch 0:2.4.2.0-1.el7                                                
+    srv001: 
+    srv001: Dependency Installed:
+    srv001:   PyYAML.x86_64 0:3.10-11.el7                                                   
+    srv001:   libtomcrypt.x86_64 0:1.17-26.el7                                              
+    srv001:   libtommath.x86_64 0:0.42.0-6.el7                                              
+    srv001:   libyaml.x86_64 0:0.1.4-11.el7_0                                               
+    srv001:   python-babel.noarch 0:0.9.6-8.el7                                             
+    srv001:   python-backports.x86_64 0:1.0-8.el7                                           
+    srv001:   python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7                    
+    srv001:   python-cffi.x86_64 0:1.6.0-5.el7                                              
+    srv001:   python-enum34.noarch 0:1.0.4-1.el7                                            
+    srv001:   python-httplib2.noarch 0:0.9.2-1.el7                                          
+    srv001:   python-idna.noarch 0:2.4-1.el7                                                
+    srv001:   python-ipaddress.noarch 0:1.0.16-2.el7                                        
+    srv001:   python-jinja2.noarch 0:2.7.2-2.el7                                            
+    srv001:   python-keyczar.noarch 0:0.71c-2.el7                                           
+    srv001:   python-markupsafe.x86_64 0:0.11-10.el7                                        
+    srv001:   python-paramiko.noarch 0:2.1.1-2.el7                                          
+    srv001:   python-ply.noarch 0:3.4-11.el7                                                
+    srv001:   python-pycparser.noarch 0:2.14-1.el7                                          
+    srv001:   python-setuptools.noarch 0:0.9.8-7.el7                                        
+    srv001:   python-six.noarch 0:1.9.0-2.el7                                               
+    srv001:   python2-crypto.x86_64 0:2.6.1-15.el7                                          
+    srv001:   python2-cryptography.x86_64 0:1.7.2-1.el7_4.1                                 
+    srv001:   python2-jmespath.noarch 0:0.9.0-3.el7                                         
+    srv001:   python2-pyasn1.noarch 0:0.1.9-7.el7                                           
+    srv001:   sshpass.x86_64 0:1.06-2.el7                                                   
+    srv001: 
+    srv001: Complete!
+    srv001: >>> Ansible version
+    srv001: ansible 2.4.2.0
+    srv001:   config file = /etc/ansible/ansible.cfg
+    srv001:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv001:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv001:   executable location = /bin/ansible
+    srv001:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv001: >>> Running the playbook
+    srv001: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv001 --extra-vars is_windows=true --connection=local
+    srv001: 
+    srv001: PLAY [srv001] ******************************************************************
+    srv001: 
+    srv001: TASK [Gathering Facts] *********************************************************
+    srv001: ok: [srv001]
+    srv001: 
+    srv001: PLAY [srv002] ******************************************************************
+    srv001: skipping: no hosts matched
+    srv001: 
+    srv001: PLAY RECAP *********************************************************************
+    srv001: srv001                     : ok=1    changed=0    unreachable=0    failed=0   
+    srv001:  [WARNING]: Could not match supplied host pattern, ignoring: srv002
+    srv001: + set +x
+==> srv001: Running provisioner: shell...
+    srv001: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-1060-ro7ywt.sh
+    srv001: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv001.
+    srv001: >>> Ansible version
+    srv001: ansible 2.4.2.0
+    srv001:   config file = /etc/ansible/ansible.cfg
+    srv001:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv001:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv001:   executable location = /bin/ansible
+    srv001:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv001: >>> Running the playbook
+    srv001: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv001 --extra-vars is_windows=true --connection=local
+    srv001: 
+    srv001: PLAY [srv001] ******************************************************************
+    srv001: 
+    srv001: TASK [Gathering Facts] *********************************************************
+    srv001: ok: [srv001]
+    srv001: 
+    srv001: PLAY [srv002] ******************************************************************
+    srv001: skipping: no hosts matched
+    srv001: 
+    srv001: PLAY RECAP *********************************************************************
+    srv001: srv001                     : ok=1    changed=0    unreachable=0    failed=0   
+    srv001:  [WARNING]: Could not match supplied host pattern, ignoring: srv002
+    srv001: + set +x
+==> srv002: Box 'bento/centos-7.4' could not be found. Attempting to find and install...
+    srv002: Box Provider: virtualbox
+    srv002: Box Version: >= 0
+==> srv002: Loading metadata for box 'bento/centos-7.4'
+    srv002: URL: https://vagrantcloud.com/bento/centos-7.4
+==> srv002: Adding box 'bento/centos-7.4' (v201801.02.0) for provider: virtualbox
+==> srv002: Importing base box 'bento/centos-7.4'...
+==> srv002: Matching MAC address for NAT networking...
+==> srv002: Checking if box 'bento/centos-7.4' is up to date...
+==> srv002: Setting the name of the VM: msansible_srv002_1516894379718_80483
+==> srv002: Fixed port collision for 22 => 2222. Now on port 2200.
+==> srv002: Clearing any previously set network interfaces...
+==> srv002: Preparing network interfaces based on configuration...
+    srv002: Adapter 1: nat
+    srv002: Adapter 2: hostonly
+==> srv002: Forwarding ports...
+    srv002: 22 (guest) => 2200 (host) (adapter 1)
+==> srv002: Running 'pre-boot' VM customizations...
+==> srv002: Booting VM...
+==> srv002: Waiting for machine to boot. This may take a few minutes...
+    srv002: SSH address: 127.0.0.1:2200
+    srv002: SSH username: vagrant
+    srv002: SSH auth method: private key
+==> srv002: Machine booted and ready!
+==> srv002: Checking for guest additions in VM...
+==> srv002: Setting hostname...
+==> srv002: Configuring and enabling network interfaces...
+    srv002: SSH address: 127.0.0.1:2200
+    srv002: SSH username: vagrant
+    srv002: SSH auth method: private key
+==> srv002: Mounting shared folders...
+    srv002: /vagrant => /Users/msops/Demo/msansible
+    srv002: /tmp/test => /Users/msops/Demo/msansible/test
+    srv002: /var/www/html => /Users/msops/Demo/msansible/www
+==> srv002: Running provisioner: shell...
+    srv002: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-1060-fm0af9.sh
+    srv002: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv002.
+    srv002: >>> CentOS: installing Ansible from the EPEL repository
+    srv002: Loaded plugins: fastestmirror
+    srv002: Determining fastest mirrors
+    srv002:  * base: mirror.genesisadaptive.com
+    srv002:  * extras: ftpmirror.your.org
+    srv002:  * updates: mirror.team-cymru.org
+    srv002: Resolving Dependencies
+    srv002: --> Running transaction check
+    srv002: ---> Package epel-release.noarch 0:7-9 will be installed
+    srv002: --> Finished Dependency Resolution
+    srv002: 
+    srv002: Dependencies Resolved
+    srv002: 
+    srv002: ================================================================================
+    srv002:  Package                Arch             Version         Repository        Size
+    srv002: ================================================================================
+    srv002: Installing:
+    srv002:  epel-release           noarch           7-9             extras            14 k
+    srv002: 
+    srv002: Transaction Summary
+    srv002: ================================================================================
+    srv002: Install  1 Package
+    srv002: 
+    srv002: Total download size: 14 k
+    srv002: Installed size: 24 k
+    srv002: Downloading packages:
+    srv002: Running transaction check
+    srv002: Running transaction test
+    srv002: Transaction test succeeded
+    srv002: Running transaction
+    srv002:   Installing : epel-release-7-9.noarch                                      1/1
+    srv002:  
+    srv002:   Verifying  : epel-release-7-9.noarch                                      1/1
+    srv002:  
+    srv002: 
+    srv002: Installed:
+    srv002:   epel-release.noarch 0:7-9                                                     
+    srv002: 
+    srv002: Complete!
+    srv002: Loaded plugins: fastestmirror
+    srv002: Loading mirror speeds from cached hostfile
+    srv002:  * base: mirror.genesisadaptive.com
+    srv002:  * epel: mirror.beyondhosting.net
+    srv002:  * extras: ftpmirror.your.org
+    srv002:  * updates: mirror.team-cymru.org
+    srv002: Resolving Dependencies
+    srv002: --> Running transaction check
+    srv002: ---> Package ansible.noarch 0:2.4.2.0-1.el7 will be installed
+    srv002: --> Processing Dependency: PyYAML for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-crypto for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-httplib2 for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-jinja2 for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-keyczar for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-paramiko for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-setuptools for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python-six for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: python2-jmespath for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Processing Dependency: sshpass for package: ansible-2.4.2.0-1.el7.noarch
+    srv002: --> Running transaction check
+    srv002: ---> Package PyYAML.x86_64 0:3.10-11.el7 will be installed
+    srv002: --> Processing Dependency: libyaml-0.so.2()(64bit) for package: PyYAML-3.10-11.el7.x86_64
+    srv002: ---> Package python-httplib2.noarch 0:0.9.2-1.el7 will be installed
+    srv002: ---> Package python-jinja2.noarch 0:2.7.2-2.el7 will be installed
+    srv002: --> Processing Dependency: python-babel >= 0.8 for package: python-jinja2-2.7.2-2.el7.noarch
+    srv002: --> Processing Dependency: python-markupsafe for package: python-jinja2-2.7.2-2.el7.noarch
+    srv002: ---> Package python-keyczar.noarch 0:0.71c-2.el7 will be installed
+    srv002: --> Processing Dependency: python-pyasn1 for package: python-keyczar-0.71c-2.el7.noarch
+    srv002: ---> Package python-paramiko.noarch 0:2.1.1-2.el7 will be installed
+    srv002: --> Processing Dependency: python-cryptography for package: python-paramiko-2.1.1-2.el7.noarch
+    srv002: ---> Package python-setuptools.noarch 0:0.9.8-7.el7 will be installed
+    srv002: --> Processing Dependency: python-backports-ssl_match_hostname for package: python-setuptools-0.9.8-7.el7.noarch
+    srv002: ---> Package python-six.noarch 0:1.9.0-2.el7 will be installed
+    srv002: ---> Package python2-crypto.x86_64 0:2.6.1-15.el7 will be installed
+    srv002: --> Processing Dependency: libtomcrypt.so.0()(64bit) for package: python2-crypto-2.6.1-15.el7.x86_64
+    srv002: ---> Package python2-jmespath.noarch 0:0.9.0-3.el7 will be installed
+    srv002: ---> Package sshpass.x86_64 0:1.06-2.el7 will be installed
+    srv002: --> Running transaction check
+    srv002: ---> Package libtomcrypt.x86_64 0:1.17-26.el7 will be installed
+    srv002: --> Processing Dependency: libtommath >= 0.42.0 for package: libtomcrypt-1.17-26.el7.x86_64
+    srv002: --> Processing Dependency: libtommath.so.0()(64bit) for package: libtomcrypt-1.17-26.el7.x86_64
+    srv002: ---> Package libyaml.x86_64 0:0.1.4-11.el7_0 will be installed
+    srv002: ---> Package python-babel.noarch 0:0.9.6-8.el7 will be installed
+    srv002: ---> Package python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7 will be installed
+    srv002: --> Processing Dependency: python-backports for package: python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch
+    srv002: ---> Package python-markupsafe.x86_64 0:0.11-10.el7 will be installed
+    srv002: ---> Package python2-cryptography.x86_64 0:1.7.2-1.el7_4.1 will be installed
+    srv002: --> Processing Dependency: python-idna >= 2.0 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv002: --> Processing Dependency: python-cffi >= 1.4.1 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv002: --> Processing Dependency: python-ipaddress for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv002: --> Processing Dependency: python-enum34 for package: python2-cryptography-1.7.2-1.el7_4.1.x86_64
+    srv002: ---> Package python2-pyasn1.noarch 0:0.1.9-7.el7 will be installed
+    srv002: --> Running transaction check
+    srv002: ---> Package libtommath.x86_64 0:0.42.0-6.el7 will be installed
+    srv002: ---> Package python-backports.x86_64 0:1.0-8.el7 will be installed
+    srv002: ---> Package python-cffi.x86_64 0:1.6.0-5.el7 will be installed
+    srv002: --> Processing Dependency: python-pycparser for package: python-cffi-1.6.0-5.el7.x86_64
+    srv002: ---> Package python-enum34.noarch 0:1.0.4-1.el7 will be installed
+    srv002: ---> Package python-idna.noarch 0:2.4-1.el7 will be installed
+    srv002: ---> Package python-ipaddress.noarch 0:1.0.16-2.el7 will be installed
+    srv002: --> Running transaction check
+    srv002: ---> Package python-pycparser.noarch 0:2.14-1.el7 will be installed
+    srv002: --> Processing Dependency: python-ply for package: python-pycparser-2.14-1.el7.noarch
+    srv002: --> Running transaction check
+    srv002: ---> Package python-ply.noarch 0:3.4-11.el7 will be installed
+    srv002: --> Finished Dependency Resolution
+    srv002: 
+    srv002: Dependencies Resolved
+    srv002: 
+    srv002: ================================================================================
+    srv002:  Package                              Arch    Version            Repository
+    srv002:                                                                            Size
+    srv002: ================================================================================
+    srv002: Installing:
+    srv002:  ansible                              noarch  2.4.2.0-1.el7      epel     7.6 M
+    srv002: Installing for dependencies:
+    srv002:  PyYAML                               x86_64  3.10-11.el7        base     153 k
+    srv002:  libtomcrypt                          x86_64  1.17-26.el7        extras   224 k
+    srv002:  libtommath                           x86_64  0.42.0-6.el7       extras    36 k
+    srv002:  libyaml                              x86_64  0.1.4-11.el7_0     base      55 k
+    srv002:  python-babel                         noarch  0.9.6-8.el7        base     1.4 M
+    srv002:  python-backports                     x86_64  1.0-8.el7          base     5.8 k
+    srv002:  python-backports-ssl_match_hostname  noarch  3.4.0.2-4.el7      base      12 k
+    srv002:  python-cffi                          x86_64  1.6.0-5.el7        base     218 k
+    srv002:  python-enum34                        noarch  1.0.4-1.el7        base      52 k
+    srv002:  python-httplib2                      noarch  0.9.2-1.el7        extras   115 k
+    srv002:  python-idna                          noarch  2.4-1.el7          base      94 k
+    srv002:  python-ipaddress                     noarch  1.0.16-2.el7       base      34 k
+    srv002:  python-jinja2                        noarch  2.7.2-2.el7        base     515 k
+    srv002:  python-keyczar                       noarch  0.71c-2.el7        epel     218 k
+    srv002:  python-markupsafe                    x86_64  0.11-10.el7        base      25 k
+    srv002:  python-paramiko                      noarch  2.1.1-2.el7        extras   267 k
+    srv002:  python-ply                           noarch  3.4-11.el7         base     123 k
+    srv002:  python-pycparser                     noarch  2.14-1.el7         base     104 k
+    srv002:  python-setuptools                    noarch  0.9.8-7.el7        base     397 k
+    srv002:  python-six                           noarch  1.9.0-2.el7        base      29 k
+    srv002:  python2-crypto                       x86_64  2.6.1-15.el7       extras   477 k
+    srv002:  python2-cryptography                 x86_64  1.7.2-1.el7_4.1    updates  502 k
+    srv002:  python2-jmespath                     noarch  0.9.0-3.el7        extras    39 k
+    srv002:  python2-pyasn1                       noarch  0.1.9-7.el7        base     100 k
+    srv002:  sshpass                              x86_64  1.06-2.el7         extras    21 k
+    srv002: 
+    srv002: Transaction Summary
+    srv002: ================================================================================
+    srv002: Install  1 Package (+25 Dependent packages)
+    srv002: 
+    srv002: Total download size: 13 M
+    srv002: Installed size: 61 M
+    srv002: Downloading packages:
+    srv002: Public key for ansible-2.4.2.0-1.el7.noarch.rpm is not installed
+    srv002: warning: /var/cache/yum/x86_64/7/epel/packages/ansible-2.4.2.0-1.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+    srv002: --------------------------------------------------------------------------------
+    srv002: Total                                              4.2 MB/s |  13 MB  00:02     
+    srv002: Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    srv002: Importing GPG key 0x352C64E5:
+    srv002:  Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+    srv002:  Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+    srv002:  Package    : epel-release-7-9.noarch (@extras)
+    srv002:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    srv002: Running transaction check
+    srv002: Running transaction test
+    srv002: Transaction test succeeded
+    srv002: Running transaction
+    srv002:   Installing : python2-pyasn1-0.1.9-7.el7.noarch                           1/26
+    srv002:  
+    srv002:   Installing : python-six-1.9.0-2.el7.noarch                               2/26
+    srv002:  
+    srv002:   Installing : python-httplib2-0.9.2-1.el7.noarch                          3/26
+    srv002:  
+    srv002:   Installing : python-enum34-1.0.4-1.el7.noarch                            4/26
+    srv002:  
+    srv002:   Installing : python-ipaddress-1.0.16-2.el7.noarch                        5/26
+    srv002:  
+    srv002:   Installing : libyaml-0.1.4-11.el7_0.x86_64                               6/26
+    srv002:  
+    srv002:   Installing : PyYAML-3.10-11.el7.x86_64                                   7/26
+    srv002:  
+    srv002:   Installing : libtommath-0.42.0-6.el7.x86_64                              8/26
+    srv002:  
+    srv002:   Installing : libtomcrypt-1.17-26.el7.x86_64                              9/26
+    srv002:  
+    srv002:   Installing : python2-crypto-2.6.1-15.el7.x86_64                         10/26
+    srv002:  
+    srv002:   Installing : python-keyczar-0.71c-2.el7.noarch                          11/26
+    srv002:  
+    srv002:   Installing : python-backports-1.0-8.el7.x86_64                          12/26
+    srv002:  
+    srv002:   Installing : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch   13/26
+    srv002:  
+    srv002:   Installing : python-setuptools-0.9.8-7.el7.noarch                       14/26
+    srv002:  
+    srv002:   Installing : python-babel-0.9.6-8.el7.noarch                            15/26
+    srv002:  
+    srv002:   Installing : python-ply-3.4-11.el7.noarch                               16/26
+    srv002:  
+    srv002:   Installing : python-pycparser-2.14-1.el7.noarch                         17/26
+    srv002:  
+    srv002:   Installing : python-cffi-1.6.0-5.el7.x86_64                             18/26
+    srv002:  
+    srv002:   Installing : python-markupsafe-0.11-10.el7.x86_64                       19/26
+    srv002:  
+    srv002:   Installing : python-jinja2-2.7.2-2.el7.noarch                           20/26
+    srv002:  
+    srv002:   Installing : python-idna-2.4-1.el7.noarch                               21/26
+    srv002:  
+    srv002:   Installing : python2-cryptography-1.7.2-1.el7_4.1.x86_64                22/26
+    srv002:  
+    srv002:   Installing : python-paramiko-2.1.1-2.el7.noarch                         23/26
+    srv002:  
+    srv002:   Installing : sshpass-1.06-2.el7.x86_64                                  24/26
+    srv002:  
+    srv002:   Installing : python2-jmespath-0.9.0-3.el7.noarch                        25/26
+    srv002:  
+    srv002:   Installing : ansible-2.4.2.0-1.el7.noarch                               26/26
+    srv002:  
+    srv002:   Verifying  : python-keyczar-0.71c-2.el7.noarch                           1/26
+    srv002:  
+    srv002:   Verifying  : python-jinja2-2.7.2-2.el7.noarch                            2/26
+    srv002:  
+    srv002:   Verifying  : python2-jmespath-0.9.0-3.el7.noarch                         3/26
+    srv002:  
+    srv002:   Verifying  : sshpass-1.06-2.el7.x86_64                                   4/26
+    srv002:  
+    srv002:   Verifying  : python-setuptools-0.9.8-7.el7.noarch                        5/26
+    srv002:  
+    srv002:   Verifying  : python2-cryptography-1.7.2-1.el7_4.1.x86_64                 6/26
+    srv002:  
+    srv002:   Verifying  : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch    7/26
+    srv002:  
+    srv002:   Verifying  : python-six-1.9.0-2.el7.noarch                               8/26
+    srv002:  
+    srv002:   Verifying  : python-idna-2.4-1.el7.noarch                                9/26
+    srv002:  
+    srv002:   Verifying  : python-markupsafe-0.11-10.el7.x86_64                       10/26
+    srv002:  
+    srv002:   Verifying  : python-ply-3.4-11.el7.noarch                               11/26
+    srv002:  
+    srv002:   Verifying  : python-babel-0.9.6-8.el7.noarch                            12/26
+    srv002:  
+    srv002:   Verifying  : python-backports-1.0-8.el7.x86_64                          13/26
+    srv002:  
+    srv002:   Verifying  : python-cffi-1.6.0-5.el7.x86_64                             14/26
+    srv002:  
+    srv002:   Verifying  : libtommath-0.42.0-6.el7.x86_64                             15/26
+    srv002:  
+    srv002:   Verifying  : python-pycparser-2.14-1.el7.noarch                         16/26
+    srv002:  
+    srv002:   Verifying  : libyaml-0.1.4-11.el7_0.x86_64                              17/26
+    srv002:  
+    srv002:   Verifying  : ansible-2.4.2.0-1.el7.noarch                               18/26
+    srv002:  
+    srv002:   Verifying  : python-paramiko-2.1.1-2.el7.noarch                         19/26
+    srv002:  
+    srv002:   Verifying  : python2-crypto-2.6.1-15.el7.x86_64                         20/26
+    srv002:  
+    srv002:   Verifying  : python-ipaddress-1.0.16-2.el7.noarch                       21/26
+    srv002:  
+    srv002:   Verifying  : python-enum34-1.0.4-1.el7.noarch                           22/26
+    srv002:  
+    srv002:   Verifying  : python-httplib2-0.9.2-1.el7.noarch                         23/26
+    srv002:  
+    srv002:   Verifying  : python2-pyasn1-0.1.9-7.el7.noarch                          24/26
+    srv002:  
+    srv002:   Verifying  : PyYAML-3.10-11.el7.x86_64                                  25/26
+    srv002:  
+    srv002:   Verifying  : libtomcrypt-1.17-26.el7.x86_64                             26/26
+    srv002:  
+    srv002: 
+    srv002: Installed:
+    srv002:   ansible.noarch 0:2.4.2.0-1.el7                                                
+    srv002: 
+    srv002: Dependency Installed:
+    srv002:   PyYAML.x86_64 0:3.10-11.el7                                                   
+    srv002:   libtomcrypt.x86_64 0:1.17-26.el7                                              
+    srv002:   libtommath.x86_64 0:0.42.0-6.el7                                              
+    srv002:   libyaml.x86_64 0:0.1.4-11.el7_0                                               
+    srv002:   python-babel.noarch 0:0.9.6-8.el7                                             
+    srv002:   python-backports.x86_64 0:1.0-8.el7                                           
+    srv002:   python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7                    
+    srv002:   python-cffi.x86_64 0:1.6.0-5.el7                                              
+    srv002:   python-enum34.noarch 0:1.0.4-1.el7                                            
+    srv002:   python-httplib2.noarch 0:0.9.2-1.el7                                          
+    srv002:   python-idna.noarch 0:2.4-1.el7                                                
+    srv002:   python-ipaddress.noarch 0:1.0.16-2.el7                                        
+    srv002:   python-jinja2.noarch 0:2.7.2-2.el7                                            
+    srv002:   python-keyczar.noarch 0:0.71c-2.el7                                           
+    srv002:   python-markupsafe.x86_64 0:0.11-10.el7                                        
+    srv002:   python-paramiko.noarch 0:2.1.1-2.el7                                          
+    srv002:   python-ply.noarch 0:3.4-11.el7                                                
+    srv002:   python-pycparser.noarch 0:2.14-1.el7                                          
+    srv002:   python-setuptools.noarch 0:0.9.8-7.el7                                        
+    srv002:   python-six.noarch 0:1.9.0-2.el7                                               
+    srv002:   python2-crypto.x86_64 0:2.6.1-15.el7                                          
+    srv002:   python2-cryptography.x86_64 0:1.7.2-1.el7_4.1                                 
+    srv002:   python2-jmespath.noarch 0:0.9.0-3.el7                                         
+    srv002:   python2-pyasn1.noarch 0:0.1.9-7.el7                                           
+    srv002:   sshpass.x86_64 0:1.06-2.el7                                                   
+    srv002: 
+    srv002: Complete!
+    srv002: >>> Ansible version
+    srv002: ansible 2.4.2.0
+    srv002:   config file = /etc/ansible/ansible.cfg
+    srv002:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv002:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv002:   executable location = /bin/ansible
+    srv002:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv002: >>> Running the playbook
+    srv002: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv002 --extra-vars is_windows=true --connection=local
+    srv002: 
+    srv002: PLAY [srv001] ******************************************************************
+    srv002: skipping: no hosts matched
+    srv002: 
+    srv002: PLAY [srv002] ******************************************************************
+    srv002:  [WARNING]: Could not match supplied host pattern, ignoring: srv001
+    srv002: 
+    srv002: TASK [Gathering Facts] *********************************************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: PLAY RECAP *********************************************************************
+    srv002: srv002                     : ok=1    changed=0    unreachable=0    failed=0   
+    srv002: + set +x
+==> srv002: Running provisioner: shell...
+    srv002: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-1060-8hu17f.sh
+    srv002: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv002.
+    srv002: >>> Ansible version
+    srv002: ansible 2.4.2.0
+    srv002:   config file = /etc/ansible/ansible.cfg
+    srv002:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv002:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv002:   executable location = /bin/ansible
+    srv002:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv002: >>> Running the playbook
+    srv002: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv002 --extra-vars is_windows=true --connection=local
+    srv002: 
+    srv002: PLAY [srv001] ******************************************************************
+    srv002: skipping: no hosts matched
+    srv002:  [WARNING]: Could not match supplied host pattern, ignoring: srv001
+    srv002: 
+    srv002: PLAY [srv002] ******************************************************************
+    srv002: 
+    srv002: TASK [Gathering Facts] *********************************************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: PLAY RECAP *********************************************************************
+    srv002: srv002                     : ok=1    changed=0    unreachable=0    failed=0   
+    srv002: + set +x
+catmini:msansible msops$ 
+
+
+catmini:msansible msops$ vagrant ssh srv001
+[vagrant@srv001 ~]$ ls
+[vagrant@srv001 ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+
+catmini:msansible msops$ vagrant status
+Current machine states:
+
+srv001                    running (virtualbox)
+srv002                    running (virtualbox)
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+catmini:msansible msops$ 
+
+catmini:msansible msops$ vagrant global-status
+id       name   provider   state   directory                           
+-----------------------------------------------------------------------
+9623477  srv001 virtualbox running /Users/msops/Demo/msansible         
+f716591  srv002 virtualbox running /Users/msops/Demo/msansible         
+ 
+The above shows information about all known Vagrant environments
+on this machine. This data is cached and may not be completely
+up-to-date. To interact with any of the machines, you can go to
+that directory and run Vagrant, or you can use the ID directly
+with Vagrant commands from any directory. For example:
+"vagrant destroy 1a2b3c4d"
+catmini:msansible msops$ 
+
+
+catmini:msansible msops$ vagrant ssh srv002
+[vagrant@srv002 ~]$ ls
+[vagrant@srv002 ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+catmini:msansible msops$ 
+
+
+catmini:msansible msops$ vagrant ssh srv001
+Last login: Thu Jan 25 15:38:54 2018 from 10.0.2.2
+[vagrant@srv001 ~]$ ls /
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  vagrant  var
+[vagrant@srv001 ~]$ ls /
+bin/     dev/     home/    lib64/   mnt/     proc/    run/     srv/     tmp/     vagrant/ 
+boot/    etc/     lib/     media/   opt/     root/    sbin/    sys/     usr/     var/     
+[vagrant@srv001 ~]$ ls /vagrant/
+ansible/           .git/              LICENSE            README.md          test/              Vagrantfile        www/
+docs/              .gitignore         package.json       scripts/           .vagrant/          vagrant-hosts.yml  
+[vagrant@srv001 ~]$ ls /vagrant/scripts/
+inventory.py             run-playbook-locally.sh  
+[vagrant@srv001 ~]$ ansible --version
+ansible 2.4.2.0
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/vagrant/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+[vagrant@srv001 ~]$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 08:00:27:16:98:18 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 82929sec preferred_lft 82929sec
+    inet6 fe80::9a39:7711:83a5:dcb3/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 08:00:27:93:2a:ee brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.10/24 brd 192.168.56.255 scope global enp0s8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe93:2aee/64 scope link 
+       valid_lft forever preferred_lft forever
+[vagrant@srv001 ~]$ 
+
+
+catmini:msansible msops$ vagrant ssh srv002
+Last login: Thu Jan 25 15:39:10 2018 from 10.0.2.2
+[vagrant@srv002 ~]$ ls /
+bin/     dev/     home/    lib64/   mnt/     proc/    run/     srv/     tmp/     vagrant/ 
+boot/    etc/     lib/     media/   opt/     root/    sbin/    sys/     usr/     var/     
+[vagrant@srv002 ~]$ ls /vagrant/
+ansible/           .git/              LICENSE            README.md          test/              Vagrantfile        www/
+docs/              .gitignore         package.json       scripts/           .vagrant/          vagrant-hosts.yml  
+[vagrant@srv002 ~]$ ls /vagrant/scripts/
+inventory.py             run-playbook-locally.sh  
+[vagrant@srv002 ~]$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 08:00:27:16:98:18 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 83136sec preferred_lft 83136sec
+    inet6 fe80::b99d:440f:ee6f:a3c1/64 scope link 
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 08:00:27:4d:2c:43 brd ff:ff:ff:ff:ff:ff
+    inet 172.28.128.3/24 brd 172.28.128.255 scope global dynamic enp0s8
+       valid_lft 1178sec preferred_lft 1178sec
+    inet6 fe80::a00:27ff:fe4d:2c43/64 scope link 
+       valid_lft forever preferred_lft forever
+[vagrant@srv002 ~]$ 
+
+catmini:msansible msops$ netstat -rn
+Routing tables
+
+Internet:
+Destination        Gateway            Flags        Refs      Use   Netif Expire
+default            192.168.88.1       UGSc           64        3     en0
+127                127.0.0.1          UCS             0        0     lo0
+127.0.0.1          127.0.0.1          UH              8   136050     lo0
+169.254            link#6             UCS             0        0     en0
+172.28.128/24      link#14            UC              1        0 vboxnet
+172.28.128.3       8:0:27:4d:2c:43    UHLWIi          1        3 vboxnet   1121
+192.168.56         link#13            UC              1        0 vboxnet
+192.168.56.10      8:0:27:93:2a:ee    UHLWIi          1        3 vboxnet   1173
+192.168.88         link#6             UCS             0        0     en0
+192.168.88.1/32    link#6             UCS             1        0     en0
+192.168.88.1       d4:ca:6d:66:99:92  UHLWIir        33        0     en0   1169
+192.168.88.11/32   link#6             UCS             0        0     en0
+224.0.0/4          link#6             UmCS            2        0     en0
+224.0.0.251        1:0:5e:0:0:fb      UHmLWI          0        0     en0
+239.255.255.250    1:0:5e:7f:ff:fa    UHmLWI          0      794     en0
+255.255.255.255/32 link#6             UCS             0        0     en0
+
+Internet6:
+Destination                             Gateway                         Flags         Netif Expire
+default                                 fe80::%utun0                    UGcI          utun0
+::1                                     ::1                             UHL             lo0
+fe80::%lo0/64                           fe80::1%lo0                     UcI             lo0
+fe80::1%lo0                             link#1                          UHLI            lo0
+fe80::%en0/64                           link#6                          UCI             en0
+fe80::1031:f229:af9b:e8cf%en0           3c:7:54:72:49:e2                UHLI            lo0
+fe80::%utun0/64                         fe80::fe7e:4f85:7e1a:70d7%utun0 UcI           utun0
+fe80::fe7e:4f85:7e1a:70d7%utun0         link#12                         UHLI            lo0
+ff01::%lo0/32                           ::1                             UmCI            lo0
+ff01::%en0/32                           link#6                          UmCI            en0
+ff01::%en1/32                           link#7                          UmCI            en1
+ff01::%utun0/32                         fe80::fe7e:4f85:7e1a:70d7%utun0 UmCI          utun0
+ff02::%lo0/32                           ::1                             UmCI            lo0
+ff02::%en0/32                           link#6                          UmCI            en0
+ff02::%en1/32                           link#7                          UmCI            en1
+ff02::%utun0/32                         fe80::fe7e:4f85:7e1a:70d7%utun0 UmCI          utun0
+catmini:msansible msops$
+
+
+catmini:msansible msops$ vboxmanage list natnets
+NetworkName:    DRPNetwork
+IP:             10.0.2.1
+Network:        10.0.2.0/24
+IPv6 Enabled:   No
+IPv6 Prefix:    fd17:625c:f037:2::/64
+DHCP Enabled:   No
+Enabled:        Yes
+loopback mappings (ipv4)
+        127.0.0.1=2
+
+catmini:msansible msops$ vboxmanage list dhcpservers
+NetworkName:    HostInterfaceNetworking-vboxnet0
+IP:             192.168.56.100
+NetworkMask:    255.255.255.0
+lowerIPAddress: 192.168.56.101
+upperIPAddress: 192.168.56.254
+Enabled:        Yes
+
+NetworkName:    HostInterfaceNetworking-vboxnet1
+IP:             172.28.128.2
+NetworkMask:    255.255.255.0
+lowerIPAddress: 172.28.128.3
+upperIPAddress: 172.28.128.254
+Enabled:        Yes
+
+catmini:msansible msops$ 
+
+
+catmini:msansible msops$ vagrant ssh srv001
+Last login: Thu Jan 25 21:33:04 2018 from 10.0.2.2
+[vagrant@srv001 ~]$ ls
+[vagrant@srv001 ~]$ cd /vagrant/
+[vagrant@srv001 vagrant]$ ls
+ansible  docs  LICENSE  package.json  README.md  scripts  test  Vagrantfile  vagrant-hosts.yml  www
+[vagrant@srv001 vagrant]$ ansible-galaxy install --roles-path="ansible/roles" bertvv.rh-base
+- downloading role 'rh-base', owned by bertvv
+- downloading role from https://github.com/bertvv/ansible-role-rh-base/archive/v2.3.0.tar.gz
+- extracting bertvv.rh-base to /vagrant/ansible/roles/bertvv.rh-base
+- bertvv.rh-base (v2.3.0) was installed successfully
+[vagrant@srv001 vagrant]$ ansible-galaxy install --roles-path="ansible/roles" bertvv.httpd
+- downloading role 'httpd', owned by bertvv
+- downloading role from https://github.com/bertvv/ansible-role-httpd/archive/v1.2.1.tar.gz
+- extracting bertvv.httpd to /vagrant/ansible/roles/bertvv.httpd
+- bertvv.httpd (v1.2.1) was installed successfully
+[vagrant@srv001 vagrant]$
+
+catmini:msansible msops$ mkdir ansible/roles
+catmini:msansible msops$ ansible-galaxy install --roles-path="ansible/roles" bertvv.rh-base
+-bash: ansible-galaxy: command not found
+catmini:msansible msops$ vagrant ssh srv001
+Last login: Thu Jan 25 21:33:04 2018 from 10.0.2.2
+[vagrant@srv001 ~]$ ls
+[vagrant@srv001 ~]$ cd /vagrant/
+[vagrant@srv001 vagrant]$ ls
+ansible  docs  LICENSE  package.json  README.md  scripts  test  Vagrantfile  vagrant-hosts.yml  www
+[vagrant@srv001 vagrant]$ ansible-galaxy install --roles-path="ansible/roles" bertvv.rh-base
+- downloading role 'rh-base', owned by bertvv
+- downloading role from https://github.com/bertvv/ansible-role-rh-base/archive/v2.3.0.tar.gz
+- extracting bertvv.rh-base to /vagrant/ansible/roles/bertvv.rh-base
+- bertvv.rh-base (v2.3.0) was installed successfully
+[vagrant@srv001 vagrant]$ ansible-galaxy install --roles-path="ansible/roles" bertvv.httpd
+- downloading role 'httpd', owned by bertvv
+- downloading role from https://github.com/bertvv/ansible-role-httpd/archive/v1.2.1.tar.gz
+- extracting bertvv.httpd to /vagrant/ansible/roles/bertvv.httpd
+- bertvv.httpd (v1.2.1) was installed successfully
+[vagrant@srv001 vagrant]$ exit
+logout
+Connection to 127.0.0.1 closed.
+
+catmini:msansible msops$ ls
+LICENSE			Vagrantfile		docs			scripts			vagrant-hosts.yml
+README.md		ansible			package.json		test			www
+catmini:msansible msops$ vagrant provision
+==> srv001: Running provisioner: shell...
+    srv001: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-2576-14q1nzu.sh
+    srv001: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv001.
+    srv001: >>> Ansible version
+    srv001: ansible 2.4.2.0
+    srv001:   config file = /etc/ansible/ansible.cfg
+    srv001:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv001:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv001:   executable location = /bin/ansible
+    srv001:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv001: >>> Running the playbook
+    srv001: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv001 --extra-vars is_windows=true --connection=local
+    srv001: 
+    srv001: PLAY [srv001] ******************************************************************
+    srv001: 
+    srv001: TASK [Gathering Facts] *********************************************************
+    srv001: ok: [srv001]
+    srv001: 
+    srv001: PLAY [srv002] ******************************************************************
+    srv001: skipping: no hosts matched
+    srv001: 
+    srv001: PLAY RECAP *********************************************************************
+    srv001: srv001                     : ok=1    changed=0    unreachable=0    failed=0   
+    srv001:  [WARNING]: Could not match supplied host pattern, ignoring: srv002
+    srv001: + set +x
+==> srv002: Running provisioner: shell...
+    srv002: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-2576-fiupn4.sh
+    srv002: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv002.
+    srv002: >>> Ansible version
+    srv002: ansible 2.4.2.0
+    srv002:   config file = /etc/ansible/ansible.cfg
+    srv002:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv002:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv002:   executable location = /bin/ansible
+    srv002:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv002: >>> Running the playbook
+    srv002: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv002 --extra-vars is_windows=true --connection=local
+    srv002: 
+    srv002: PLAY [srv001] ******************************************************************
+    srv002: skipping: no hosts matched
+    srv002: 
+    srv002: PLAY [srv002] ******************************************************************
+    srv002:  [WARNING]: Could not match supplied host pattern, ignoring: srv001
+    srv002: 
+    srv002: TASK [Gathering Facts] *********************************************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_vars] *******************************************
+    srv002: ok: [srv002] => (item=/vagrant/ansible/roles/bertvv.rh-base/vars/RedHat.yml)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/install.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Check minimal value of ‘rhbase_repo_installonly_limit’ (>= 2)] ***
+    srv002: ok: [srv002] => {
+    srv002:     "failed_when_result": false, 
+    srv002:     "msg": "The value of ‘rhbase_repo_installonly_limit’ should be at least 2, actual value is 3."
+    srv002: }
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure the machine-ID is available] ***********
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure basic systemd services are running] ****
+    srv002: ok: [srv002] => (item=systemd-journald)
+    srv002: ok: [srv002] => (item=systemd-tmpfiles-setup-dev)
+    srv002: ok: [srv002] => (item=systemd-tmpfiles-setup)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Role/Ansible dependencies] ********************
+    srv002: ok: [srv002] => (item=libselinux-python)
+    srv002: ok: [srv002] => (item=libsemanage-python)
+    srv002: ok: [srv002] => (item=firewalld)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Package management configuration (yum)] *******
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified external repositories are installed] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified repositories are enabled] ****
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified packages are installed] ******
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified packages are NOT installed] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure all updates are installed] *************
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/config.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Ensure host name is in the hosts file] *********
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Install custom `/etc/motd` file] ***************
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Check if ifup-eth script overrides firewall zone] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Don’t override firewall zone in ifup-eth script] ***
+    srv002: changed: [srv002]
+    srv002:  [WARNING]: Consider using template or lineinfile module rather than running
+    srv002: sed
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Check if ifup-post script overrides firewall zone] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Don’t override firewall zone in ifup-post script] ***
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Set the TZ environment variable] ***************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/services.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure SSH daemon is running] ****************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure `/var/log/journal` exists] ************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure specified services are running] *******
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure specified services are NOT running] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/security.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure SELinux is Enforcing] **************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Enable SELinux booleans] *********************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure the firewall is running] ***********
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure basic services can pass through firewall] ***
+    srv002: ok: [srv002] => (item=dhcpv6-client)
+    srv002: ok: [srv002] => (item=ssh)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure user specified services can pass through firewall] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure user specified ports can pass through firewall] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure specified interfaces are added] ****
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/users.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Add groups] *************************************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Add users] **************************************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Set up SSH key for user (not specified)] ********
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/admin.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Admin | Make sure users from the wheel group can use sudo] ***
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Admin | Set attributes of sudo configuration file for wheel group] ***
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : include_vars] *********************************************
+    srv002: ok: [srv002] => (item=/vagrant/ansible/roles/bertvv.httpd/vars/RedHat.yml)
+    srv002: 
+    srv002: TASK [bertvv.httpd : Ensure Apache is installed] *******************************
+    srv002: changed: [srv002] => (item=httpd)
+    srv002: changed: [srv002] => (item=mod_ssl)
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install scripting support if needed] **********************
+    srv002: 
+    srv002: TASK [bertvv.httpd : Ensure Apache is always running] **************************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install main configuration file] **************************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install mod_ssl configuration file] ***********************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: RUNNING HANDLER [bertvv.rh-base : restart journald] ****************************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: RUNNING HANDLER [bertvv.httpd : restart httpd] *********************************
+    srv002: changed: [srv002]
+    srv002: 
+    srv002: PLAY RECAP *********************************************************************
+    srv002: srv002                     : ok=32   changed=15   unreachable=0    failed=0   
+    srv002: + set +x
+==> srv002: Running provisioner: shell...
+    srv002: Running: /var/folders/r3/7__qq0zj6mq_27889bsn9rmm0000gv/T/vagrant-shell20180125-2576-yc1njj.sh
+    srv002: >>> Running Ansible playbook /vagrant/ansible/site.yml locally on host srv002.
+    srv002: >>> Ansible version
+    srv002: ansible 2.4.2.0
+    srv002:   config file = /etc/ansible/ansible.cfg
+    srv002:   configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+    srv002:   ansible python module location = /usr/lib/python2.7/site-packages/ansible
+    srv002:   executable location = /bin/ansible
+    srv002:   python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+    srv002: >>> Running the playbook
+    srv002: + /bin/ansible-playbook /vagrant/ansible/site.yml --inventory-file=/vagrant/scripts/inventory.py --limit=srv002 --extra-vars is_windows=true --connection=local
+    srv002: 
+    srv002: PLAY [srv001] ******************************************************************
+    srv002: skipping: no hosts matched
+    srv002: 
+    srv002: PLAY [srv002] ******************************************************************
+    srv002:  [WARNING]: Could not match supplied host pattern, ignoring: srv001
+    srv002: 
+    srv002: TASK [Gathering Facts] *********************************************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_vars] *******************************************
+    srv002: ok: [srv002] => (item=/vagrant/ansible/roles/bertvv.rh-base/vars/RedHat.yml)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/install.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Check minimal value of ‘rhbase_repo_installonly_limit’ (>= 2)] ***
+    srv002: ok: [srv002] => {
+    srv002:     "failed_when_result": false, 
+    srv002:     "msg": "The value of ‘rhbase_repo_installonly_limit’ should be at least 2, actual value is 3."
+    srv002: }
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure the machine-ID is available] ***********
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure basic systemd services are running] ****
+    srv002: ok: [srv002] => (item=systemd-journald)
+    srv002: ok: [srv002] => (item=systemd-tmpfiles-setup-dev)
+    srv002: ok: [srv002] => (item=systemd-tmpfiles-setup)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Role/Ansible dependencies] ********************
+    srv002: ok: [srv002] => (item=libselinux-python)
+    srv002: ok: [srv002] => (item=libsemanage-python)
+    srv002: ok: [srv002] => (item=firewalld)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Package management configuration (yum)] *******
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified external repositories are installed] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified repositories are enabled] ****
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified packages are installed] ******
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure specified packages are NOT installed] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Install | Ensure all updates are installed] *************
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/config.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Ensure host name is in the hosts file] *********
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Install custom `/etc/motd` file] ***************
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Check if ifup-eth script overrides firewall zone] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Don’t override firewall zone in ifup-eth script] ***
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Check if ifup-post script overrides firewall zone] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Don’t override firewall zone in ifup-post script] ***
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Config | Set the TZ environment variable] ***************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/services.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure SSH daemon is running] ****************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure `/var/log/journal` exists] ************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure specified services are running] *******
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Services | Ensure specified services are NOT running] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/security.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure SELinux is Enforcing] **************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Enable SELinux booleans] *********************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure the firewall is running] ***********
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure basic services can pass through firewall] ***
+    srv002: ok: [srv002] => (item=dhcpv6-client)
+    srv002: ok: [srv002] => (item=ssh)
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure user specified services can pass through firewall] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure user specified ports can pass through firewall] ***
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Security | Make sure specified interfaces are added] ****
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/users.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Add groups] *************************************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Add users] **************************************
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Users | Set up SSH key for user (not specified)] ********
+    srv002: skipping: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : include_tasks] ******************************************
+    srv002: included: /vagrant/ansible/roles/bertvv.rh-base/tasks/admin.yml for srv002
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Admin | Make sure users from the wheel group can use sudo] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.rh-base : Admin | Set attributes of sudo configuration file for wheel group] ***
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : include_vars] *********************************************
+    srv002: ok: [srv002] => (item=/vagrant/ansible/roles/bertvv.httpd/vars/RedHat.yml)
+    srv002: 
+    srv002: TASK [bertvv.httpd : Ensure Apache is installed] *******************************
+    srv002: ok: [srv002] => (item=httpd)
+    srv002: ok: [srv002] => (item=mod_ssl)
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install scripting support if needed] **********************
+    srv002: 
+    srv002: TASK [bertvv.httpd : Ensure Apache is always running] **************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install main configuration file] **************************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: TASK [bertvv.httpd : Install mod_ssl configuration file] ***********************
+    srv002: ok: [srv002]
+    srv002: 
+    srv002: PLAY RECAP *********************************************************************
+    srv002: srv002                     : ok=28   changed=0    unreachable=0    failed=0   
+    srv002: + set +x
+catmini:msansible msops$ 
+

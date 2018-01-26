@@ -12,6 +12,7 @@ Guide
    :maxdepth: 2
 
    help
+   help-create-msansible
 
 Indices and tables
 ==================

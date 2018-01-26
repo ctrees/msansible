@@ -1,0 +1,33 @@
+{
+  "name": "msansible",
+  "version": "0.0.1",
+  "description": "Boilerplate project to run drp UX feature tests with Cucumber",
+  "homepage": "https://github.com/ctrees/msansible",
+  "scripts": {
+    "docs": "cd docs && make html && cd ..",
+    "test": "echo test_NOT_Setup",
+    "wip": "echo wip_NOT_Setup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctrees/msansible.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ctrees/msansible/issues"
+  },
+  "keywords": [
+    "ansible",
+    "msansible",
+    "Vagrant",
+    "bats"
+  ],
+  "author": "Chris Trees <ctrees@mailserviceslc.com>",
+  "contributors": [
+    "Chris Trees <christrees@yahoo.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

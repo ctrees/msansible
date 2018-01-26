@@ -1,0 +1,25 @@
+# site.yml
+---
+- hosts: srv001
+  become: true
+  roles: []
+
+- hosts: srv002
+  become: true
+  roles:
+    - bertvv.rh-base
+    - bertvv.httpd
+  post_tasks:
+    - name: Stop firewall for this test
+      service:
+        name: firewalld
+        state: stopped
+    - name: create 'testwebsite'
+      file: path=/var/www/html/index.php 
+            owner=apache
+            group=apache
+            mode=0555
+    - name: Install php demo
+      lineinfile:
+        dest: /var/www/html/index.php
+        line: '<span>This is srv002 test for msansible</span><hr/><?php phpinfo(); ?>'

@@ -3,6 +3,36 @@
 .DS_Store
 drpisolated*
 
+### BEGIN merge in ansible-skeleton gitignore ###
+# .gitignore
+
+# Hidden Vagrant-directory
+.vagrant
+
+# Python development
+.ropeproject
+
+# Backup files (e.g. Vim, Gedit, etc.)
+*~
+
+# Compiled Python
+*.pyc
+
+# BATS installation
+test/bats/
+
+# Vagrant base boxes (you never know when someone puts one in the repository)
+*.box
+
+# Directories containing roles imported from Ansible Galaxy
+# (user.role notation)
+ansible/roles/*.*
+
+# Ansible Retry-files
+*.retry
+
+### END merge in ansible-skeleton gitignore ###
+
 ################################
 # cucumber-boilerplate gitignore 
 
