@@ -16,7 +16,7 @@ PROJECT_NAME = '/' + File.basename(Dir.getwd)
 
 # When set to `true`, Ansible will be forced to be run locally on the VM
 # instead of from the host machine (provided Ansible is installed).
-FORCE_LOCAL_RUN = false
+FORCE_LOCAL_RUN = true
 
 hosts = YAML.load_file('vagrant-hosts.yml')
 

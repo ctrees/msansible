@@ -31,6 +31,9 @@ ansible/roles/*.*
 # Ansible Retry-files
 *.retry
 
+# temp dir stuff gen by ansible build of docs
+www
+
 ### END merge in ansible-skeleton gitignore ###
 
 ################################

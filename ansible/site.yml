@@ -1,25 +1,142 @@
 # site.yml
 ---
-- hosts: srv001
-  become: true
-  roles: []
+#- hosts: srv001
+#  become: true
+#  roles: []
 
-- hosts: srv002
+# docs used as the documentation server
+- hosts: docs
   become: true
+  vars:
+    rhbase_ssh_user: msops
+    rhbase_ssh_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb3XRQNcl7d4S+/hHMuSp4Xvto7FM81jOnu32ihLvjsmirTGGHwGTe4r+NCXHD8QeM81j6g5y52dvpRvBLVCdDpSLzj1m03RnL8EjJmZM9kQLXX+UfyyC62LYuQkHjZeJ6oTZ0fZ3JKH50kWHUMl9EBSJfyp+nsOfMCRIaRTp+7JxEM+I51mIRLfQognZTPH3n0ZnHIzOU0/YnRb3jo6CJYFJPHAQFNipCDIIMFq+aOyTlp1M9tnijd4t8HwJB5RVHWQwIdQqEtArcJ35/D9v3QM9ehqAC9KuNeRn4kpt2Ba1hj3AYbF2STCmuPQQotIeobsvyV/g6ChoIQarAXjFn msops@catmini.cat9.private'
+    rhbase_firewall_allow_services:
+      - http
+      - https
+    rhbase_firewall_allow_ports:
+      - 8080/tcp
+      - 53/udp
+    rhbase_firewall_interfaces:
+      - enp0s3
+      - enp0s8
+    rhbase_start_services:
+      - sshd
+    rhbase_user_groups:
+      - msadmin
+      - mstest
+    rhbase_users:
+      - name: msops
+        comment: Administrator
+        groups:
+          - wheel
+          - msadmin
+        password: '$6$IljJlWObzDELhyrz$7kK//l0EXs/pt4OUFPKGisgJkbLHPVfw4gxlOqqVHhu.wxYDnfETAhDBBW5pkQiGrNxQ6xKnkKNt4rb85gsCY1'
+        #-HINT: defaultmsops
+        #-crypt-sha512 https://www.mkpasswd.net/index.php
+      - name: cat
+        comment: 'Chris A Trees'
+        groups:
+          - mstest
+        password: '$6$eB9rKOzpGYfu0MJJ$58qVMQMltf9WBbTlqDnCZ77fyS371zqsFGJGN3pQ0hbJ7CWHVePy5XkHGFCFXJ2LmezufqrPRvMTKS6g5vgFi1'
+        #-HINT: WhatTimeIsIt
+        #-crypt-sha512 https://www.mkpasswd.net/index.php
+      - name: test
+    rhbase_selinux_booleans: [httpd_enable_homedirs]
+    rhbase_repo_gpgcheck: false
+    rhbase_repo_installonly_limit: 2
+    rhbase_install_packages: [git, nodejs]
+#    rhbase_install_packages: [git, nodejs, cifs-utils, sphinxcontrib-confluencebuilder]
+    rhbase_motd: true
+    rhbase_hosts_entry: true
+    rhbase_update: true
+    rbase_selinux_state: enforcing
+    # Setup http site
+    httpd_scripting: 'php'
+#    httpd_virtualSite: 'msansible.rtd'
+#    httpd_users_public_html: ['msops', 'cat']
+    # Load the pip documentation packages we use
+    pip_install_packages:
+      - requests
+      - Sphinx
+      - sphinxcontrib-confluencebuilder
   roles:
     - bertvv.rh-base
     - bertvv.httpd
+    - geerlingguy.pip
+  tasks:
+    - name: Enable public_html for users
+      template:
+        src: docs_userdir.conf.j2
+        dest: /etc/httpd/conf.d/userdir.conf
+#    - name: Mount cifs Share
+#      mount:
+#        state: mounted
+#        fstype: cifs
+#        name: //freenas.local/shared
+#        src: /mnt/freenas
+#        opts: "username=msops,password=mailserviceslc,dir_mode=0777,file_mode=0777,uid=0,gid=0,noserverino 0 0"
+      # //share/shared /input_files cifs credentials=/home/svc_account/.smbcredentials,dir_mode=0777,file_mode=0777,uid=0,gid=0,noserverino\0400\0400 0 0
   post_tasks:
-    - name: Stop firewall for this test
+    - name: Just simple html in /var/www/html
+      copy:
+        content: |
+          </hr></hr><span>This is msansible main http site.</span></hr></hr>
+        dest: /var/www/html/index.html
+# Pattern from https://www.if-not-true-then-false.com/2010/enable-apache-userdir-with-selinux-on-fedora-centos-red-hat-rhel/
+    - name: Set correct perms /home/<user>
+      file:
+        path: /home/msops
+        state: directory
+        owner: msops
+        group: msops
+        mode: 0711
+    - name: Create and Set correct perms on /home/user/public_html
+      file:
+        path: /home/msops/public_html
+        state: directory
+        owner: msops
+        group: msops
+        mode: 0755
+    - name: Create simple test html
+      copy:
+        content: |
+          </hr></hr><span>This is /home/msops/public_html/index.html test site.</span></hr></hr>
+        dest: /home/msops/public_html/index.html
+    - name: Restart httpd
       service:
-        name: firewalld
-        state: stopped
-    - name: create 'testwebsite'
-      file: path=/var/www/html/index.php 
-            owner=apache
-            group=apache
-            mode=0555
-    - name: Install php demo
-      lineinfile:
-        dest: /var/www/html/index.php
-        line: '<span>This is srv002 test for msansible</span><hr/><?php phpinfo(); ?>'
+        name: httpd
+        state: restarted
+
+# Working on Virtual Site Pattern
+#    - name: Create Virtual Site Pattern sites-available
+#      file:
+#        path: /etc/httpd/sites-available
+#        state: directory
+#    - name: Create Virtual Site Pattern sites-enabled
+#      file:
+#        path: /etc/httpd/sites-enabled
+#        state: directory
+#    - name: Create Virtual Site Pattern call in httpd.conf
+#      lineinfile:
+#        dest: /etc/httpd/conf/httpd.conf
+#        line: 'IncludeOptional sites-enabled/*.conf'
+#    - name: Create Virtual Site conf
+#      template:
+#        src: vsite.conf.j2
+#        dest: /etc/httpd/sites-available/msansible.rtd.conf
+#    - name: Create Virtual Site enable link
+#      file:
+#        src: /etc/httpd/sites-available/msansible.rtd.conf 
+#        dest: /etc/httpd/sites-enabled/msansible.rtd.conf
+#        state: link
+#    - name: Create msansible.rtd site and relax perms
+#      file:
+#        path: /var/www/msansible.rtd/public_html
+#        state: directory
+#        mode: 0777
+#    - name: Create test index.html for virtual site
+#      template:
+#        src: vsite.html.j2
+#        dest: /var/www/msansible.rtd/public_html/index.html
+
+

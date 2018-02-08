@@ -1,0 +1,7 @@
+<VirtualHost *:80>
+
+    ServerName www.{{ httpd_virtualSite }}
+    ServerAlias {{ httpd_virtualSite }}
+    DocumentRoot /var/www/{{ httpd_virtualSite }}/public_html
+
+</VirtualHost>
