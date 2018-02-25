@@ -87,7 +87,10 @@ Manual Steps
 
     #. Verify site by browsing https://intranet-wiki.example.com/pages/viewpage.action?title=TEST&spaceKey=Documentation
 
-#. The END ?
+#. Some relative Info
+    #. https://developer.atlassian.com/server/confluence/confluence-server-rest-api/
+    #. https://docs.atlassian.com/atlassian-confluence/REST/6.6.0/
+#. The End
 
 .. document includes
 
